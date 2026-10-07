@@ -55,6 +55,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: '**.vercel-storage.com' },
     ],
     localPatterns: [
+      { pathname: '/logo.jpg', search: '' },
       { pathname: '/uploads/**', search: '' },
       { pathname: '/placeholders/**', search: '' },
     ],
