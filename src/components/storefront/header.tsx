@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState, type FormEvent } from 'react';
 
 import { IconChevronDown, IconMenu, IconMessenger, IconSearch } from '@/components/ui/icons';
 import type { ResolvedNavGroup } from '@/lib/queries/content';
@@ -24,6 +24,73 @@ function isActive(pathname: string, href: string): boolean {
   if (href === '/') return pathname === '/';
   const [path] = href.split('?');
   return pathname === path || pathname.startsWith(`${path}/`);
+}
+
+function SearchMenu() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const [q, setQ] = useState('');
+
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    setOpen(false);
+  }
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [open]);
+
+  const submit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const query = q.trim();
+    setOpen(false);
+    router.push(query ? `/search?q=${encodeURIComponent(query)}` : '/search');
+  };
+
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((value) => !value)}
+        aria-label="Search products"
+        aria-expanded={open}
+        className="rounded-full p-2.5 text-ink transition-colors hover:text-accent"
+      >
+        <IconSearch size={19} />
+      </button>
+      {open ? (
+        <>
+          <div className="fixed inset-0 -z-10" aria-hidden="true" onClick={() => setOpen(false)} />
+          <form
+            onSubmit={submit}
+            role="search"
+            className="absolute right-0 top-full mt-3 w-[min(22rem,calc(100vw-2rem))] border border-line bg-surface p-3 shadow-xl"
+          >
+            <div className="relative">
+              <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted">
+                <IconSearch size={16} />
+              </span>
+              <input
+                autoFocus
+                type="search"
+                value={q}
+                onChange={(event) => setQ(event.target.value)}
+                placeholder="Search products"
+                className="input w-full pl-9"
+              />
+            </div>
+          </form>
+        </>
+      ) : null}
+    </div>
+  );
 }
 
 export function Header({ groups, wordmark, logoUrl, layout, messengerHref, messengerLabel }: HeaderProps) {
@@ -106,13 +173,7 @@ export function Header({ groups, wordmark, logoUrl, layout, messengerHref, messe
 
   const actions = (
     <div className="flex items-center justify-end gap-1">
-      <Link
-        href="/search"
-        aria-label="Search products"
-        className="rounded-full p-2.5 text-ink transition-colors hover:text-accent"
-      >
-        <IconSearch size={19} />
-      </Link>
+      <SearchMenu />
       {messengerHref ? (
         <a
           href={messengerHref}
@@ -140,13 +201,7 @@ export function Header({ groups, wordmark, logoUrl, layout, messengerHref, messe
               <div className="hidden lg:block">{nav}</div>
               <div className="hidden justify-self-end lg:flex">{actions}</div>
               <div className="flex items-center gap-1 justify-self-end lg:hidden">
-                <Link
-                  href="/search"
-                  aria-label="Search products"
-                  className="rounded-full p-2.5 text-ink transition-colors hover:text-accent"
-                >
-                  <IconSearch size={19} />
-                </Link>
+                <SearchMenu />
                 <button
                   type="button"
                   onClick={() => setMenuOpen(true)}
