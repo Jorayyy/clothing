@@ -13,7 +13,9 @@
     "typecheck": "tsc --noEmit",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx scripts/migrate.ts",
-    "db:seed": "tsx scripts/seed.ts"
+    "db:seed": "tsx scripts/seed.ts",
+    "db:import-products": "tsx scripts/import-products.ts",
+    "db:reset-admin": "tsx scripts/reset-admin.ts"
   },
   "dependencies": {
     "@vercel/blob": "^2.8.1",
