@@ -78,7 +78,7 @@ export function MobileNav({ open, onClose, groups }: MobileNavProps) {
         className="absolute inset-y-0 left-0 flex w-[min(22rem,88vw)] flex-col bg-surface outline-none"
       >
         <div className="flex items-center justify-between border-b border-line px-5 py-4">
-          <span className="font-display text-lg uppercase tracking-[0.2em]">Menu</span>
+          <span className="font-display text-lg font-bold">Menu</span>
           <button
             type="button"
             onClick={onClose}
@@ -100,7 +100,7 @@ export function MobileNav({ open, onClose, groups }: MobileNavProps) {
                     <Link
                       href={group.href}
                       onClick={onClose}
-                      className="flex-1 py-3.5 text-[0.95rem] font-medium uppercase tracking-[0.12em]"
+                      className="flex-1 py-3.5 text-[0.95rem] font-medium"
                     >
                       {group.label}
                     </Link>

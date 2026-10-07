@@ -27,24 +27,24 @@
 }
 
 :root {
-  --site-bg: #f4f0e9;
+  --site-bg: #ffffff;
   --site-surface: #ffffff;
-  --site-text: #15130f;
-  --site-muted: #6c645a;
-  --site-primary: #15130f;
-  --site-on-primary: #f7f5f1;
-  --site-accent: #dd4b22;
+  --site-text: #111111;
+  --site-muted: #737373;
+  --site-primary: #111111;
+  --site-on-primary: #ffffff;
+  --site-accent: #111111;
   --site-on-accent: #ffffff;
-  --site-border: #ddd6cb;
-  --site-sale: #b0341a;
+  --site-border: #e5e5e5;
+  --site-sale: #d92d20;
   --site-container: 1320px;
-  --site-radius: 0px;
-  --site-btn-radius: 0px;
+  --site-radius: 16px;
+  --site-btn-radius: 9999px;
   --site-gutter: 24px;
-  --font-display-stack: var(--font-instrument), Georgia, serif;
-  --font-body-stack: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
-  --font-display-weight: 400;
-  --font-display-tracking: -0.015em;
+  --font-display-stack: var(--font-jakarta), "Helvetica Neue", Arial, sans-serif;
+  --font-body-stack: var(--font-jakarta), "Helvetica Neue", Arial, sans-serif;
+  --font-display-weight: 700;
+  --font-display-tracking: -0.02em;
   --font-body-tracking: -0.01em;
 }
 
@@ -182,8 +182,7 @@
     border-radius: var(--site-btn-radius);
     font-size: 0.8125rem;
     font-weight: 600;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
+    letter-spacing: -0.01em;
     cursor: pointer;
     transition:
       background-color 160ms ease,

@@ -1,23 +1,15 @@
 import type { Metadata, Viewport } from 'next';
-import { Archivo, Instrument_Serif } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 
 import { ToastProvider } from '@/components/ui/toast';
 import { getSettings, fontVars, themeCssVars } from '@/lib/settings';
 
 import './globals.css';
 
-const archivo = Archivo({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-archivo',
-});
-
-const instrument = Instrument_Serif({
-  weight: '400',
-  subsets: ['latin'],
-  style: ['normal', 'italic'],
-  display: 'swap',
-  variable: '--font-instrument',
+  variable: '--font-jakarta',
 });
 
 function absolute(url: string, fallback: string): string {
@@ -93,7 +85,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html
       lang="en-PH"
       data-scroll-behavior="smooth"
-      className={`${archivo.variable} ${instrument.variable}`}
+      className={jakarta.variable}
       style={style}
     >
       <body className="min-h-dvh antialiased">

@@ -71,7 +71,7 @@ function SearchMenu() {
           <form
             onSubmit={submit}
             role="search"
-            className="absolute right-0 top-full mt-3 w-[min(22rem,calc(100vw-2rem))] border border-line bg-surface p-3 shadow-xl"
+            className="absolute right-0 top-full mt-3 w-[min(22rem,calc(100vw-2rem))] rounded-site border border-line bg-surface p-3 shadow-xl"
           >
             <div className="relative">
               <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted">
@@ -135,7 +135,7 @@ export function Header({ groups, wordmark, logoUrl, layout, messengerHref, messe
                 rel={group.openInNewTab ? 'noreferrer noopener' : undefined}
                 aria-current={active ? 'page' : undefined}
                 className={cn(
-                  'relative inline-flex items-center gap-1 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] transition-colors',
+                  'relative inline-flex items-center gap-1 py-2 text-[0.85rem] font-medium transition-colors',
                   active ? 'text-accent' : 'text-ink hover:text-accent',
                 )}
               >
@@ -152,7 +152,7 @@ export function Header({ groups, wordmark, logoUrl, layout, messengerHref, messe
               </Link>
 
               {hasChildren ? (
-                <div className="invisible absolute left-0 top-full z-30 min-w-52 translate-y-1 border border-line bg-surface py-2 opacity-0 shadow-xl transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                <div className="invisible absolute left-0 top-full z-30 min-w-52 translate-y-1 rounded-site border border-line bg-surface py-2 opacity-0 shadow-xl transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
                   {group.children?.map((child) => (
                     <Link
                       key={`${child.href}-${child.label}`}

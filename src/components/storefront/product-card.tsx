@@ -39,7 +39,7 @@ export function ProductCard({
     <article className="group/card flex flex-col">
       <Link
         href={`/products/${product.slug}`}
-        className="relative block overflow-hidden bg-surface"
+        className="relative block overflow-hidden rounded-site bg-surface"
         aria-label={product.name}
       >
         <div className={cn('relative w-full', RATIO_CLASS[card.imageRatio])}>
@@ -124,7 +124,7 @@ export function ProductCard({
             href={inquireHref}
             target="_blank"
             rel="noreferrer noopener"
-            className="mt-3 inline-flex w-fit items-center gap-1.5 border border-line px-3 py-2 text-[0.65rem] font-bold uppercase tracking-[0.16em] transition hover:border-accent hover:text-accent"
+            className="mt-3 inline-flex w-fit items-center gap-1.5 rounded-full border border-line px-3.5 py-2 text-[0.7rem] font-semibold transition hover:border-accent hover:text-accent"
           >
             <IconMessenger size={13} />
             Inquire

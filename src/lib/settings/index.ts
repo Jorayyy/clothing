@@ -137,16 +137,16 @@ export function fontVars(fontPreset: Settings['theme']['fontPreset']): Record<st
   switch (fontPreset) {
     case 'grotesque':
       return {
-        '--font-display-stack': 'var(--font-archivo), "Helvetica Neue", Arial, sans-serif',
-        '--font-body-stack': 'var(--font-archivo), "Helvetica Neue", Arial, sans-serif',
+        '--font-display-stack': 'var(--font-jakarta), "Helvetica Neue", Arial, sans-serif',
+        '--font-body-stack': 'var(--font-jakarta), "Helvetica Neue", Arial, sans-serif',
         '--font-display-weight': '700',
         '--font-display-tracking': '-0.03em',
         '--font-body-tracking': '-0.01em',
       };
     case 'contrast':
       return {
-        '--font-display-stack': 'var(--font-archivo), "Helvetica Neue", Arial, sans-serif',
-        '--font-body-stack': 'var(--font-archivo), "Helvetica Neue", Arial, sans-serif',
+        '--font-display-stack': 'var(--font-jakarta), "Helvetica Neue", Arial, sans-serif',
+        '--font-body-stack': 'var(--font-jakarta), "Helvetica Neue", Arial, sans-serif',
         '--font-display-weight': '800',
         '--font-display-tracking': '-0.045em',
         '--font-body-tracking': '0em',
@@ -154,10 +154,10 @@ export function fontVars(fontPreset: Settings['theme']['fontPreset']): Record<st
     case 'editorial':
     default:
       return {
-        '--font-display-stack': 'var(--font-instrument), Georgia, serif',
-        '--font-body-stack': 'var(--font-archivo), "Helvetica Neue", Arial, sans-serif',
-        '--font-display-weight': '400',
-        '--font-display-tracking': '-0.015em',
+        '--font-display-stack': 'var(--font-jakarta), "Helvetica Neue", Arial, sans-serif',
+        '--font-body-stack': 'var(--font-jakarta), "Helvetica Neue", Arial, sans-serif',
+        '--font-display-weight': '700',
+        '--font-display-tracking': '-0.02em',
         '--font-body-tracking': '-0.01em',
       };
   }
