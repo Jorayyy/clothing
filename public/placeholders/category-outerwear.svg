@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="OUTERWEAR">
+  <rect width="1200" height="900" fill="#8C3B2E"/>
+  <circle cx="936" cy="216" r="312" fill="#F4F0E9" opacity="0.9"/>
+  <rect x="0" y="558" width="1200" height="144" fill="#F4F0E9"/>
+  <rect x="96" y="324" width="504" height="180" fill="#15130F" opacity="0.12"/>
+  <text x="96" y="630" fill="#15130F" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" dominant-baseline="middle" letter-spacing="2">OUTERWEAR</text>
+  <text x="96" y="810" fill="#15130F" opacity="0.65" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="6">MICSAPPAREL</text>
+</svg>

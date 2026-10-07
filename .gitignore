@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local database (PGlite fallback used when DATABASE_URL is unset)
+/.local/
+/memory/
+
+# media uploads in local development (production uses Vercel Blob)
+/public/uploads/
+
+# test artifacts
+/test-results/
+/playwright-report/
