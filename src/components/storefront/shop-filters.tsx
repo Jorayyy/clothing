@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import { IconSearch } from '@/components/ui/icons';
 import type { CategoryCard } from '@/lib/queries/catalog';
 import {
   FILTERABLE_ATTRIBUTE_KEYS,
@@ -16,8 +15,6 @@ interface ShopFiltersProps {
   basePath: string;
   categories: CategoryCard[];
   facets: { key: string; name: string; values: string[] }[];
-  /** Unique prefix so the form can be rendered twice (mobile + desktop) safely. */
-  idPrefix?: string;
 }
 
 function toggle(values: string[] | undefined, value: string): string[] {
@@ -25,8 +22,7 @@ function toggle(values: string[] | undefined, value: string): string[] {
   return list.includes(value) ? list.filter((item) => item !== value) : [...list, value];
 }
 
-export function ShopFilters({ params, basePath, categories, facets, idPrefix = 'filter' }: ShopFiltersProps) {
-  const searchId = `${idPrefix}-q`;
+export function ShopFilters({ params, basePath, categories, facets }: ShopFiltersProps) {
   const activeCategories = new Set(
     params.category
       ? [params.category]
@@ -35,25 +31,6 @@ export function ShopFilters({ params, basePath, categories, facets, idPrefix = '
 
   return (
     <form method="get" action={basePath} className="space-y-8">
-      <div>
-        <label htmlFor={searchId} className="eyebrow mb-3 block">
-          Search
-        </label>
-        <div className="relative">
-          <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted">
-            <IconSearch size={16} />
-          </span>
-          <input
-            id={searchId}
-            type="search"
-            name="q"
-            defaultValue={params.q}
-            placeholder="Search products"
-            className="input w-full pl-9"
-          />
-        </div>
-      </div>
-
       {categories.length > 0 ? (
         <fieldset>
           <legend className="eyebrow mb-3">Category</legend>
@@ -166,6 +143,7 @@ export function ShopFilters({ params, basePath, categories, facets, idPrefix = '
       })}
 
       {/* Preserve scalar state that has no visible control in this form. */}
+      {params.q ? <input type="hidden" name="q" value={params.q} /> : null}
       {params.sort !== 'newest' ? <input type="hidden" name="sort" value={params.sort} /> : null}
       {params.page > 1 ? <input type="hidden" name="page" value={params.page} /> : null}
       {params.collection ? <input type="hidden" name="collection" value={params.collection} /> : null}

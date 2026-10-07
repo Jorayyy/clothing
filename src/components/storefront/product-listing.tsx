@@ -104,7 +104,6 @@ export async function ProductListing({
               basePath={basePath}
               categories={categories}
               facets={facets}
-              idPrefix="desk"
             />
           </div>
         </aside>
@@ -124,7 +123,6 @@ export async function ProductListing({
                 basePath={basePath}
                 categories={categories}
                 facets={facets}
-                idPrefix="mob"
               />
             </div>
           </details>
